@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <Page
+      id="Page2">
+      <property
+         name="jspName">/trans_succes.jspx</property>
+      <property
+         name="x">169.0</property>
+      <property
+         name="y">76.896484</property>
+      <property
+         name="wildcard">false</property>
+   </Page>
+   <Page
+      id="Page3">
+      <property
+         name="jspName">/edit_trasaction.jspx</property>
+      <property
+         name="x">469.0</property>
+      <property
+         name="y">74.19531</property>
+      <property
+         name="wildcard">false</property>
+   </Page>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase4"
+      from="Page2"
+      to="Page3">
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="fromOutcome">upload</property>
+      <property
+         name="sdm:polyPoints">R46,210.0,73.0459,427.95663,70.34473,L46</property>
+   </NavigationCase>
+   <NavigationCase
+      islink="true"
+      id="NavigationCase6"
+      from="Page3"
+      to="Page2">
+      <property
+         name="description">Navigation Case</property>
+      <property
+         name="fromOutcome">commit</property>
+      <property
+         name="sdm:polyPoints">R54,61.0,36.5,125.92509,80.0459,L54</property>
+   </NavigationCase>
+</SDM>

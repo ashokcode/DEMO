@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<DataControlConfigs xmlns="http://xmlns.oracle.com/adfm/configuration" version="12.2.1.9.14" id="DataControls"
+                    Package="com.jpa.csv.parse">
+  <AdapterDataControl id="TransactionFacade" FactoryClass="oracle.adf.model.adapter.bean.BeanDCFactoryImpl"
+                      ImplDef="oracle.adf.model.adapter.bean.BeanDCDefinition" SupportsTransactions="true"
+                      SupportsSortCollection="true" SupportsResetState="false" SupportsRangesize="false"
+                      SupportsFindMode="false" SupportsUpdates="true" Definition="com.jpa.csv.parse.TransactionFacade"
+                      BeanClass="com.jpa.csv.parse.TransactionFacade" xmlns="http://xmlns.oracle.com/adfm/datacontrol">
+    <Source>
+      <bean-definition BeanClass="com.jpa.csv.parse.TransactionFacade"
+                       DataControlHandler="oracle.adf.model.adapter.bean.jpa.JPQLDataFilterHandler"
+                       AccessMode="scrollable" EagerPersist="true" xmlns="http://xmlns.oracle.com/adfm/adapter/bean"/>
+    </Source>
+  </AdapterDataControl>
+</DataControlConfigs>

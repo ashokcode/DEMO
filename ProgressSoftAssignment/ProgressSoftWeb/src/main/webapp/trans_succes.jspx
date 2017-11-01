@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="trans_succes.jspx" id="d1" binding="#{backingBeanScope.backing_trans_succes.d1}">
+            <af:messages binding="#{backingBeanScope.backing_trans_succes.m1}" id="m1"/>
+            <af:form id="f1" binding="#{backingBeanScope.backing_trans_succes.f1}">
+                <af:panelTabbed position="above" id="pt1" binding="#{backingBeanScope.backing_trans_succes.pt1}">
+                    <af:showDetailItem id="succestab" text="Transaction Sucess" disclosed="true"
+                                       binding="#{backingBeanScope.backing_trans_succes.succestab}">
+                        <af:table value="#{bindings.transactionSuccessFindAll.collectionModel}" var="row"
+                                  rows="#{bindings.transactionSuccessFindAll.rangeSize}"
+                                  emptyText="#{bindings.transactionSuccessFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" scrollPolicy="page"
+                                  selectedRowKeys="#{bindings.transactionSuccessFindAll.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.transactionSuccessFindAll.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.transactionSuccessFindAll.rangeSize}"
+                                  filterModel="#{bindings.transactionSuccessFindAllQuery.queryDescriptor}"
+                                  filterVisible="true" autoHeightRows="0" styleClass="AFStretchWidth"
+                                  queryListener="#{bindings.transactionSuccessFindAllQuery.processQuery}" varStatus="vs"
+                                  id="t1" binding="#{backingBeanScope.backing_trans_succes.t1}">
+                            <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.amount.name}"
+                                       filterable="true" sortable="false"
+                                       headerText="#{bindings.transactionSuccessFindAll.hints.amount.label}" id="c1">
+                                <af:outputText value="#{row.amount}"
+                                               shortDesc="#{bindings.transactionSuccessFindAll.hints.amount.tooltip}"
+                                               id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.transactionSuccessFindAll.hints.amount.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.filename.name}"
+                                       filterable="true" sortable="false"
+                                       headerText="#{bindings.transactionSuccessFindAll.hints.filename.label}" id="c2">
+                                <af:outputText value="#{row.filename}"
+                                               shortDesc="#{bindings.transactionSuccessFindAll.hints.filename.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.name}"
+                                       filterable="true" sortable="false"
+                                       headerText="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.label}"
+                                       id="c3">
+                                <af:outputText value="#{row.orderingcurrency}"
+                                               shortDesc="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.tooltip}"
+                                               id="ot3"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.tocurrency.name}"
+                                       filterable="true" sortable="false"
+                                       headerText="#{bindings.transactionSuccessFindAll.hints.tocurrency.label}"
+                                       id="c4">
+                                <af:outputText value="#{row.tocurrency}"
+                                               shortDesc="#{bindings.transactionSuccessFindAll.hints.tocurrency.tooltip}"
+                                               id="ot4"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.transactiontime.name}"
+                                       filterable="true" sortable="false"
+                                       headerText="#{bindings.transactionSuccessFindAll.hints.transactiontime.label}"
+                                       id="c5">
+                                <f:facet name="filter">
+                                    <af:inputDate value="#{bindings.transactionSuccessFindAllQuery.queryDescriptor.filterConjunctionCriterion.criterionMap.transactiontime.value}"
+                                                  id="id1" binding="#{backingBeanScope.backing_trans_succes.id1}">
+                                        <af:convertDateTime pattern="#{bindings.transactionSuccessFindAll.hints.transactiontime.format}"/>
+                                    </af:inputDate>
+                                </f:facet>
+                                <af:outputText value="#{row.transactiontime}"
+                                               shortDesc="#{bindings.transactionSuccessFindAll.hints.transactiontime.tooltip}"
+                                               id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.transactionSuccessFindAll.hints.transactiontime.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.uid.name}"
+                                       filterable="true" sortable="false"
+                                       headerText="#{bindings.transactionSuccessFindAll.hints.uid.label}" id="c6">
+                                <af:outputText value="#{row.uid}"
+                                               shortDesc="#{bindings.transactionSuccessFindAll.hints.uid.tooltip}"
+                                               id="ot6"/>
+                            </af:column>
+                        </af:table>
+                        <af:button text="Upload" action="upload"  id="b1" binding="#{backingBeanScope.backing_trans_succes.b1}"/>
+                    </af:showDetailItem>
+                    <af:showDetailItem id="failtab" text="Transaction Failed"
+                                       binding="#{backingBeanScope.backing_trans_succes.failtab}"/>
+                </af:panelTabbed>
+            </af:form>
+        </af:document>
+    </f:view>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_trans_succes-->
+</jsp:root>

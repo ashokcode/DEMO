@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.9.14" id="trans_succesPageDef"
+                Package="com.java.assignment.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="root" RangeSize="25" DataControl="TransactionFacade" id="TransactionFacadeIterator"/>
+    <accessorIterator MasterBinding="TransactionFacadeIterator" Binds="transactionSuccessFindAll" RangeSize="25"
+                      DataControl="TransactionFacade" BeanClass="com.jpa.csv.parse.TransactionSuccess"
+                      id="transactionSuccessFindAllIterator"/>
+    <searchRegion Binds="transactionSuccessFindAllIterator" Criteria=""
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="transactionSuccessFindAllQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="transactionSuccessFindAllIterator" id="transactionSuccessFindAll">
+      <nodeDefinition DefName="com.jpa.csv.parse.TransactionSuccess" Name="transactionSuccessFindAll0">
+        <AttrNames>
+          <Item Value="amount"/>
+          <Item Value="filename"/>
+          <Item Value="orderingcurrency"/>
+          <Item Value="tocurrency"/>
+          <Item Value="transactiontime"/>
+          <Item Value="uid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
