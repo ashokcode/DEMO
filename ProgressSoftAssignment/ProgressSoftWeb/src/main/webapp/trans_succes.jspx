@@ -21,7 +21,7 @@
                                   queryListener="#{bindings.transactionSuccessFindAllQuery.processQuery}" varStatus="vs"
                                   id="t1" binding="#{backingBeanScope.backing_trans_succes.t1}">
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.amount.name}"
-                                       filterable="true" sortable="false"
+                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
                                        headerText="#{bindings.transactionSuccessFindAll.hints.amount.label}" id="c1">
                                 <af:outputText value="#{row.amount}"
                                                shortDesc="#{bindings.transactionSuccessFindAll.hints.amount.tooltip}"
@@ -31,14 +31,14 @@
                                 </af:outputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.filename.name}"
-                                       filterable="true" sortable="false"
+                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
                                        headerText="#{bindings.transactionSuccessFindAll.hints.filename.label}" id="c2">
                                 <af:outputText value="#{row.filename}"
                                                shortDesc="#{bindings.transactionSuccessFindAll.hints.filename.tooltip}"
                                                id="ot2"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.name}"
-                                       filterable="true" sortable="false"
+                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
                                        headerText="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.label}"
                                        id="c3">
                                 <af:outputText value="#{row.orderingcurrency}"
@@ -46,7 +46,7 @@
                                                id="ot3"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.tocurrency.name}"
-                                       filterable="true" sortable="false"
+                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
                                        headerText="#{bindings.transactionSuccessFindAll.hints.tocurrency.label}"
                                        id="c4">
                                 <af:outputText value="#{row.tocurrency}"
@@ -54,7 +54,7 @@
                                                id="ot4"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.transactiontime.name}"
-                                       filterable="true" sortable="false"
+                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
                                        headerText="#{bindings.transactionSuccessFindAll.hints.transactiontime.label}"
                                        id="c5">
                                 <f:facet name="filter">
@@ -70,7 +70,7 @@
                                 </af:outputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.uid.name}"
-                                       filterable="true" sortable="false"
+                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
                                        headerText="#{bindings.transactionSuccessFindAll.hints.uid.label}" id="c6">
                                 <af:outputText value="#{row.uid}"
                                                shortDesc="#{bindings.transactionSuccessFindAll.hints.uid.tooltip}"
@@ -80,7 +80,48 @@
                         <af:button text="Upload" action="upload"  id="b1" binding="#{backingBeanScope.backing_trans_succes.b1}"/>
                     </af:showDetailItem>
                     <af:showDetailItem id="failtab" text="Transaction Failed"
-                                       binding="#{backingBeanScope.backing_trans_succes.failtab}"/>
+                                       binding="#{backingBeanScope.backing_trans_succes.failtab}">
+                        <af:table value="#{bindings.transactionFailedFindAll.collectionModel}" var="row"
+                                  rows="#{bindings.transactionFailedFindAll.rangeSize}"
+                                  emptyText="#{bindings.transactionFailedFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.transactionFailedFindAll.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.transactionFailedFindAll.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.transactionFailedFindAll.rangeSize}"
+                                  filterModel="#{bindings.transactionFailedFindAllQuery.queryDescriptor}"
+                                  filterVisible="true"
+                                  queryListener="#{bindings.transactionFailedFindAllQuery.processQuery}" varStatus="vs"
+                                  id="t2" binding="#{backingBeanScope.backing_trans_succes.t2}">
+                            <af:column sortProperty="#{bindings.transactionFailedFindAll.hints.failedRow.name}"
+                                       filterable="true"
+                                       headerText="#{bindings.transactionFailedFindAll.hints.failedRow.label}" id="c7">
+                                <af:outputText value="#{row.failedRow}"
+                                               shortDesc="#{bindings.transactionFailedFindAll.hints.failedRow.tooltip}"
+                                               id="ot7"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionFailedFindAll.hints.fileName.name}"
+                                       filterable="true"
+                                       headerText="#{bindings.transactionFailedFindAll.hints.fileName.label}" id="c8">
+                                <af:outputText value="#{row.fileName}"
+                                               shortDesc="#{bindings.transactionFailedFindAll.hints.fileName.tooltip}"
+                                               id="ot8"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionFailedFindAll.hints.remarks.name}"
+                                       filterable="true"
+                                       headerText="#{bindings.transactionFailedFindAll.hints.remarks.label}" id="c9">
+                                <af:outputText value="#{row.remarks}"
+                                               shortDesc="#{bindings.transactionFailedFindAll.hints.remarks.tooltip}"
+                                               id="ot9"/>
+                            </af:column>
+                            <af:column sortProperty="#{bindings.transactionFailedFindAll.hints.uid.name}"
+                                       filterable="true"
+                                       headerText="#{bindings.transactionFailedFindAll.hints.uid.label}" id="c10">
+                                <af:outputText value="#{row.uid}"
+                                               shortDesc="#{bindings.transactionFailedFindAll.hints.uid.tooltip}"
+                                               id="ot10"/>
+                            </af:column>
+                        </af:table>
+                    </af:showDetailItem>
                 </af:panelTabbed>
             </af:form>
         </af:document>

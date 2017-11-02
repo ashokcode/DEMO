@@ -19,6 +19,7 @@ public class Trans_succes {
     private RichTable t1;
     private RichInputDate id1;
     private RichButton b1;
+    private RichTable t2;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -90,5 +91,13 @@ public class Trans_succes {
 
     public RichButton getB1() {
         return b1;
+    }
+
+    public void setT2(RichTable t2) {
+        this.t2 = t2;
+    }
+
+    public RichTable getT2() {
+        return t2;
     }
 }
