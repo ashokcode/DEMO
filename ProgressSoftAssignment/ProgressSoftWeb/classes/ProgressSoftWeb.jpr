@@ -551,7 +551,4 @@
          <value n="metamodel-generation-directory" v=""/>
       </hash>
    </hash>
-   <hash n="ResourceBundleOptions">
-      <value n="BundleCreationPolicy" v="2"/>
-   </hash>
 </jpr:project>

@@ -1,0 +1,29 @@
+
+
+create database devdb;
+
+CREATE USER 'newadmin'@'localhost' IDENTIFIED BY 'newadmin';
+
+GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+	
+
+use devdb;
+
+
+CREATE TABLE 'transaction_success' (
+  'UID' varchar(8) CHARACTER SET latin1 NOT NULL,
+  'ORDERINGCURRENCY' varchar(5) CHARACTER SET latin1 NOT NULL,
+  'TOCURRENCY' varchar(5) CHARACTER SET latin1 NOT NULL,
+  'TRANSACTIONTIME' timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  'AMOUNT' decimal(10,0) NOT NULL,
+  'FILENAME' varchar(255) CHARACTER SET latin1 NOT NULL,
+  PRIMARY KEY ('UID')
+) ENGINE=MyISAM DEFAULT CHARSET=utf8
+
+CREATE TABLE 'transaction_failed' (
+  'uid' mediumint(9) NOT NULL AUTO_INCREMENT,
+  'FAILED_ROW' varchar(255) NOT NULL,
+  'FILE_NAME' varchar(255) NOT NULL,
+  'REMARKS' varchar(255) NOT NULL,
+  PRIMARY KEY ('uid')
+) ENGINE=MyISAM AUTO_INCREMENT=1000001 DEFAULT CHARSET=utf8

@@ -5,8 +5,16 @@
     <f:view>
         <af:document title="trans_succes.jspx" id="d1" binding="#{backingBeanScope.backing_trans_succes.d1}">
             <af:messages binding="#{backingBeanScope.backing_trans_succes.m1}" id="m1"/>
-            <af:form id="f1" binding="#{backingBeanScope.backing_trans_succes.f1}">
-                <af:panelTabbed position="above" id="pt1" binding="#{backingBeanScope.backing_trans_succes.pt1}">
+             <af:form id="f1" binding="#{backingBeanScope.backing_trans_succes.f1}">
+            <af:panelStretchLayout id="psl1" binding="#{backingBeanScope.backing_trans_succes.psl1}"  styleClass="AFStretchWidth" >
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:facet name="top"/>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                
+             
+                        <af:panelTabbed position="above" id="pt1" binding="#{backingBeanScope.backing_trans_succes.pt1}">
                     <af:showDetailItem id="succestab" text="Transaction Sucess" disclosed="true"
                                        binding="#{backingBeanScope.backing_trans_succes.succestab}">
                         <af:table value="#{bindings.transactionSuccessFindAll.collectionModel}" var="row"
@@ -17,11 +25,11 @@
                                   selectionListener="#{bindings.transactionSuccessFindAll.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.transactionSuccessFindAll.rangeSize}"
                                   filterModel="#{bindings.transactionSuccessFindAllQuery.queryDescriptor}"
-                                  filterVisible="true" autoHeightRows="0" styleClass="AFStretchWidth"
+                                  filterVisible="true" autoHeightRows="0" 
                                   queryListener="#{bindings.transactionSuccessFindAllQuery.processQuery}" varStatus="vs"
                                   id="t1" binding="#{backingBeanScope.backing_trans_succes.t1}">
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.amount.name}"
-                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
+                                       filterable="true" sortable="false" 
                                        headerText="#{bindings.transactionSuccessFindAll.hints.amount.label}" id="c1">
                                 <af:outputText value="#{row.amount}"
                                                shortDesc="#{bindings.transactionSuccessFindAll.hints.amount.tooltip}"
@@ -31,14 +39,14 @@
                                 </af:outputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.filename.name}"
-                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
+                                       filterable="true" sortable="false"  
                                        headerText="#{bindings.transactionSuccessFindAll.hints.filename.label}" id="c2">
                                 <af:outputText value="#{row.filename}"
                                                shortDesc="#{bindings.transactionSuccessFindAll.hints.filename.tooltip}"
                                                id="ot2"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.name}"
-                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
+                                       filterable="true" sortable="false"  
                                        headerText="#{bindings.transactionSuccessFindAll.hints.orderingcurrency.label}"
                                        id="c3">
                                 <af:outputText value="#{row.orderingcurrency}"
@@ -46,7 +54,7 @@
                                                id="ot3"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.tocurrency.name}"
-                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
+                                       filterable="true" sortable="false" 
                                        headerText="#{bindings.transactionSuccessFindAll.hints.tocurrency.label}"
                                        id="c4">
                                 <af:outputText value="#{row.tocurrency}"
@@ -54,7 +62,7 @@
                                                id="ot4"/>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.transactiontime.name}"
-                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
+                                       filterable="true" sortable="false" 
                                        headerText="#{bindings.transactionSuccessFindAll.hints.transactiontime.label}"
                                        id="c5">
                                 <f:facet name="filter">
@@ -70,7 +78,7 @@
                                 </af:outputText>
                             </af:column>
                             <af:column sortProperty="#{bindings.transactionSuccessFindAll.hints.uid.name}"
-                                       filterable="true" sortable="false" styleClass="AFStretchWidth"
+                                       filterable="true" sortable="false" 
                                        headerText="#{bindings.transactionSuccessFindAll.hints.uid.label}" id="c6">
                                 <af:outputText value="#{row.uid}"
                                                shortDesc="#{bindings.transactionSuccessFindAll.hints.uid.tooltip}"
@@ -84,12 +92,12 @@
                         <af:table value="#{bindings.transactionFailedFindAll.collectionModel}" var="row"
                                   rows="#{bindings.transactionFailedFindAll.rangeSize}"
                                   emptyText="#{bindings.transactionFailedFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                  rowBandingInterval="0"
+                                  rowBandingInterval="0" scrollPolicy="page" 
                                   selectedRowKeys="#{bindings.transactionFailedFindAll.collectionModel.selectedRow}"
                                   selectionListener="#{bindings.transactionFailedFindAll.collectionModel.makeCurrent}"
                                   rowSelection="single" fetchSize="#{bindings.transactionFailedFindAll.rangeSize}"
                                   filterModel="#{bindings.transactionFailedFindAllQuery.queryDescriptor}"
-                                  filterVisible="true"
+                                  filterVisible="true" 
                                   queryListener="#{bindings.transactionFailedFindAllQuery.processQuery}" varStatus="vs"
                                   id="t2" binding="#{backingBeanScope.backing_trans_succes.t2}">
                             <af:column sortProperty="#{bindings.transactionFailedFindAll.hints.failedRow.name}"
@@ -123,6 +131,9 @@
                         </af:table>
                     </af:showDetailItem>
                 </af:panelTabbed>
+           
+                </f:facet>
+            </af:panelStretchLayout>
             </af:form>
         </af:document>
     </f:view>

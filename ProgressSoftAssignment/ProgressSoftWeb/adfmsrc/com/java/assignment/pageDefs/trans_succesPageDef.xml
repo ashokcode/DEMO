@@ -10,7 +10,7 @@
                       id="transactionSuccessFindAllIterator"/>
     <searchRegion Binds="transactionSuccessFindAllIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="transactionSuccessFindAllQuery"/>
-    <accessorIterator MasterBinding="TransactionFacadeIterator" Binds="transactionFailedFindAll" RangeSize="25"
+    <accessorIterator MasterBinding="TransactionFacadeIterator" Binds="transactionFailedFindAll" RangeSize="10"
                       DataControl="TransactionFacade" BeanClass="com.jpa.csv.parse.TransactionFailed"
                       id="transactionFailedFindAllIterator"/>
     <searchRegion Binds="transactionFailedFindAllIterator" Criteria=""

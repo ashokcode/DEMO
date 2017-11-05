@@ -45,7 +45,7 @@ public class Edit_trasaction {
     //Variable to store list of Unique UIDs
     private HashSet<String>   uidset=new HashSet<String>();
     //Global entity to pass value
-    TransactionSuccess success=new TransactionSuccess();
+    com.jpa.csv.parse.TransactionSuccess success=new com.jpa.csv.parse.TransactionSuccess();
     com.jpa.csv.parse.TransactionFailed failed=new com.jpa.csv.parse.TransactionFailed();
     
     public Edit_trasaction(){
@@ -146,7 +146,7 @@ public class Edit_trasaction {
                 while ((line = inputread.readLine()) != null) {
                     System.out.println("\n"+line);
                     inputRow=line.split(",");
-                     success=new TransactionSuccess();
+                     success=new com.jpa.csv.parse.TransactionSuccess();
                      failed=new com.jpa.csv.parse.TransactionFailed();
                    validRow = validateRow(success,failed,inputRow,fileNameInput,validRow);
                     if(validRow){

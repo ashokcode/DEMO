@@ -4,6 +4,7 @@ import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.data.RichTable;
 import oracle.adf.view.rich.component.rich.input.RichInputDate;
+import oracle.adf.view.rich.component.rich.layout.RichPanelStretchLayout;
 import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
@@ -20,6 +21,7 @@ public class Trans_succes {
     private RichInputDate id1;
     private RichButton b1;
     private RichTable t2;
+    private RichPanelStretchLayout psl1;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -99,5 +101,13 @@ public class Trans_succes {
 
     public RichTable getT2() {
         return t2;
+    }
+
+    public void setPsl1(RichPanelStretchLayout psl1) {
+        this.psl1 = psl1;
+    }
+
+    public RichPanelStretchLayout getPsl1() {
+        return psl1;
     }
 }
