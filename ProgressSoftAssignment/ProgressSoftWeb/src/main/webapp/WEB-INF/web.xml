@@ -133,4 +133,7 @@
   <listener>
     <listener-class>oracle.adf.mbean.share.config.ADFConfigLifeCycleCallBack</listener-class>
   </listener>
+  <welcome-file-list>
+    <welcome-file>faces/edit_trasaction.jspx</welcome-file>
+  </welcome-file-list>
 </web-app>
