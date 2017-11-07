@@ -130,6 +130,35 @@
                             </af:column>
                         </af:table>
                     </af:showDetailItem>
+                     <af:showDetailItem id="countTab" text="Transaction Counts"
+                                       binding="#{backingBeanScope.backing_trans_succes.counttab}">
+                                <af:table value="#{bindings.transactionCountsFindAll.collectionModel}" var="row"
+                                          rows="#{bindings.transactionCountsFindAll.rangeSize}"
+                                          emptyText="#{bindings.transactionCountsFindAll.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                          rowBandingInterval="0"
+                                          selectedRowKeys="#{bindings.transactionCountsFindAll.collectionModel.selectedRow}"
+                                          selectionListener="#{bindings.transactionCountsFindAll.collectionModel.makeCurrent}"
+                                          rowSelection="single"
+                                          fetchSize="#{bindings.transactionCountsFindAll.rangeSize}" id="t3"
+                                          binding="#{backingBeanScope.backing_trans_succes.t3}">
+                                    <af:column sortProperty="#{bindings.transactionCountsFindAll.hints.orderingcurrency.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.transactionCountsFindAll.hints.orderingcurrency.label}"
+                                               id="c11">
+                                        <af:outputText value="#{row.orderingcurrency}"
+                                                       shortDesc="#{bindings.transactionCountsFindAll.hints.orderingcurrency.tooltip}"
+                                                       id="ot11"/>
+                                    </af:column>
+                                    <af:column sortProperty="#{bindings.transactionCountsFindAll.hints.transactionCount.name}"
+                                               sortable="true"
+                                               headerText="#{bindings.transactionCountsFindAll.hints.transactionCount.label}"
+                                               id="c12">
+                                        <af:outputText value="#{row.transactionCount}"
+                                                       shortDesc="#{bindings.transactionCountsFindAll.hints.transactionCount.tooltip}"
+                                                       id="ot12"/>
+                                    </af:column>
+                                </af:table>
+                            </af:showDetailItem>
                 </af:panelTabbed>
            
                 </f:facet>

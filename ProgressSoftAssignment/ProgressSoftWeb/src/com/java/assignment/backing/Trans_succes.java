@@ -16,12 +16,14 @@ public class Trans_succes {
     private RichPanelTabbed pt1;
     private RichShowDetailItem succestab;
     private RichShowDetailItem failtab;
+    private RichShowDetailItem counttab;
     private RichMessages m1;
     private RichTable t1;
     private RichInputDate id1;
     private RichButton b1;
     private RichTable t2;
     private RichPanelStretchLayout psl1;
+    private RichTable t3;
 
     public void setF1(RichForm f1) {
         this.f1 = f1;
@@ -61,6 +63,14 @@ public class Trans_succes {
 
     public RichShowDetailItem getFailtab() {
         return failtab;
+    }
+    
+    public void setCounttab(RichShowDetailItem counttab) {
+        this.counttab = counttab;
+    }
+
+    public RichShowDetailItem getCounttab() {
+        return counttab;
     }
 
     public void setM1(RichMessages m1) {
@@ -109,5 +119,13 @@ public class Trans_succes {
 
     public RichPanelStretchLayout getPsl1() {
         return psl1;
+    }
+
+    public void setT3(RichTable t3) {
+        this.t3 = t3;
+    }
+
+    public RichTable getT3() {
+        return t3;
     }
 }

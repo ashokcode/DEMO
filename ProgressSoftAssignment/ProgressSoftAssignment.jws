@@ -29,6 +29,7 @@
    </list>
    <list n="listOfChildren">
       <hash><url n="URL" path="Model/Model.jpr"/></hash>
+      <hash><url n="URL" path="ModelTests/ModelTests.jpr"/></hash>
       <hash><url n="URL" path="ProgressSoftWeb/ProgressSoftWeb.jpr"/></hash>
    </list>
    <hash n="oracle.jdeveloper.deploy.dt.DeploymentProfiles">

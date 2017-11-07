@@ -5,5 +5,5 @@
                  version="2.4">
   <entity class="com.jpa.csv.parse.TransactionSuccess"/>
   <entity class="com.jpa.csv.parse.TransactionFailed"/>
-  
+  <entity class="com.jpa.csv.parse.TransactionCounts"/>
 </entity-mappings>

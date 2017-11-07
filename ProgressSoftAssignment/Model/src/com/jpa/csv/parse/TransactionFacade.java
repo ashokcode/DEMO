@@ -96,4 +96,9 @@ public class TransactionFacade {
     public List<TransactionFailed> getTransactionFailedFindAll() {
         return em.createNamedQuery("TransactionFailed.findAll", TransactionFailed.class).getResultList();
     }
+    
+    /** <code>select o from TransactionCounts o</code> */
+    public List<TransactionCounts> getTransactionCountsFindAll() {
+        return em.createNamedQuery("TransactionCounts.findAll", TransactionCounts.class).getResultList();
+    }
 }

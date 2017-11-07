@@ -7,6 +7,7 @@
     <jta-data-source>java:/app/jdbc/jdbc/MySQLDS</jta-data-source>
     <class>com.jpa.csv.parse.TransactionFailed</class>
     <class>com.jpa.csv.parse.TransactionSuccess</class>
+     <class>com.jpa.csv.parse.TransactionCounts</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
@@ -28,12 +29,32 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>com.jpa.csv.parse.TransactionSuccess</class>
     <class>com.jpa.csv.parse.TransactionFailed</class>
+    <class>com.jpa.csv.parse.TransactionCounts</class>
     <properties>
+    <property name="eclipselink.logging.exceptions" value="true"/>
+      <property name="eclipselink.logging.timestamp" value="true"/>
+      <property name="eclipselink.logging.session" value="true"/>
+      <property name="eclipselink.logging.thread" value="true"/>
+      <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/devdb"/>
       <property name="javax.persistence.jdbc.user" value="newadmin"/>
       <property name="javax.persistence.jdbc.password" value="2CAEE481FBA5792CE21156C7F2C41A5F"/>
       <property name="eclipselink.logging.level" value="FINER"/>
+    </properties>
+  </persistence-unit>
+  <persistence-unit name="Model2">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/MySQLDS</jta-data-source>
+    <class>com.jpa.csv.parse.TransactionCounts</class>
+    <properties>
+      <property name="eclipselink.target-server" value="WebLogic_10"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/MySQLDS"/>
+      <property name="eclipselink.logging.exceptions" value="true"/>
+      <property name="eclipselink.logging.timestamp" value="true"/>
+      <property name="eclipselink.logging.session" value="true"/>
+      <property name="eclipselink.logging.thread" value="true"/>
+      <property name="eclipselink.jdbc.batch-writing" value="JDBC"/>
     </properties>
   </persistence-unit>
 </persistence>

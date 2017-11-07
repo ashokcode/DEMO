@@ -22,6 +22,10 @@ import java.util.List;
 
 import java.util.stream.Collectors;
 
+import javax.el.ExpressionFactory;
+
+import javax.el.ValueExpression;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
@@ -30,6 +34,7 @@ import javax.faces.event.ValueChangeEvent;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
@@ -47,6 +52,9 @@ public class Edit_trasaction {
     //Global entity to pass value
     com.jpa.csv.parse.TransactionSuccess success=new com.jpa.csv.parse.TransactionSuccess();
     com.jpa.csv.parse.TransactionFailed failed=new com.jpa.csv.parse.TransactionFailed();
+    private static ADFLogger _logger = 
+                ADFLogger.createADFLogger(Edit_trasaction.class);
+    
     
     public Edit_trasaction(){
         try{
@@ -60,7 +68,8 @@ public class Edit_trasaction {
            
         uidset.addAll(uid);
         }catch(Exception ex){
-            ex.printStackTrace();
+            
+            _logger.severe(ex.getMessage(), ex);
         }
     }
     
@@ -106,14 +115,14 @@ public class Edit_trasaction {
         UploadedFile inputfile = (UploadedFile) valueChangeEvent.getNewValue();
         String fileNameInput=null;
         if(inputfile!=null){
-            System.out.println("\n\n\n Input file name: "+inputfile.getFilename());
+            _logger.info("\n\n\n Input file name: "+inputfile.getFilename());
             fileNameInput=inputfile.getFilename();
         }
         //Initialize the database connection and create query
         EntityManager em = Persistence.createEntityManagerFactory("Model1-Outside").createEntityManager();
        List<TransactionSuccess> successlist= em.createQuery("select o from transaction_success o WHERE o.filename = :filename").setParameter("filename", fileNameInput).getResultList();
 
-        System.out.println(" List Size :"+successlist.size());
+        _logger.info(" List Size :"+successlist.size());
         
         //Show error message if file exists
         if(successlist.size()>0){
@@ -144,7 +153,7 @@ public class Edit_trasaction {
         String[] inputRow=null;    
         boolean validRow=false;    
                 while ((line = inputread.readLine()) != null) {
-                    System.out.println("\n"+line);
+                    _logger.info("\n"+line);
                     inputRow=line.split(",");
                      success=new com.jpa.csv.parse.TransactionSuccess();
                      failed=new com.jpa.csv.parse.TransactionFailed();
@@ -154,7 +163,10 @@ public class Edit_trasaction {
                         success.setFilename(fileNameInput);
                         em.persist(success);
                     }else{
-                        failed.setFailedRow(inputRow[0]);
+                        if(inputRow.length < 1)
+                            failed.setFailedRow(null);
+                        else
+                            failed.setFailedRow(inputRow[0]);
                         failed.setFileName(fileNameInput);
                         
                         em.persist(failed);
@@ -167,9 +179,9 @@ public class Edit_trasaction {
             em.close();
             
         } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
+            _logger.severe(e.getMessage(),e);
         } catch (IOException e) {
-            e.printStackTrace();
+            _logger.severe(e.getMessage(),e);
         }
         
         return  null;
@@ -237,7 +249,11 @@ public class Edit_trasaction {
         }
 
         if (!validRow) {
-            failed.setFailedRow(inputRow[0]);
+            if(inputRow.length < 1){
+            failed.setFailedRow(null);
+            }else{
+                failed.setFailedRow(inputRow[0]);
+            }
             failed.setFileName(fileNameInput);
         }
         
@@ -302,5 +318,19 @@ public class Edit_trasaction {
 
     public void updateFileTransaction(ActionEvent actionEvent) {
         return;
+    }
+    
+    public boolean sessionExpired(){
+        boolean validate=false;
+        // Get a session bean  
+        FacesContext ctx = FacesContext.getCurrentInstance();  
+        ExpressionFactory ef = ctx.getApplication().getExpressionFactory();  
+        ValueExpression ve = ef.createValueExpression(ctx.getELContext(), "#{testSessionBean}", com.java.assignment.backing.Index.class);  
+        if(ve!=null){
+        com.java.assignment.backing.Index test = (com.java.assignment.backing.Index)ve.getValue(ctx.getELContext());  
+        }else{
+            System.out.println("Session Expired");
+        }
+        return validate;
     }
 }

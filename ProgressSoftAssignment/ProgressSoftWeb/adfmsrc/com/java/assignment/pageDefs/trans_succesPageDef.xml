@@ -15,6 +15,9 @@
                       id="transactionFailedFindAllIterator"/>
     <searchRegion Binds="transactionFailedFindAllIterator" Criteria=""
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" id="transactionFailedFindAllQuery"/>
+    <accessorIterator MasterBinding="TransactionFacadeIterator" Binds="transactionCountsFindAll" RangeSize="25"
+                      DataControl="TransactionFacade" BeanClass="com.jpa.csv.parse.TransactionCounts"
+                      id="transactionCountsFindAllIterator"/>
   </executables>
   <bindings>
     <tree IterBinding="transactionSuccessFindAllIterator" id="transactionSuccessFindAll">
@@ -36,6 +39,14 @@
           <Item Value="fileName"/>
           <Item Value="remarks"/>
           <Item Value="uid"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="transactionCountsFindAllIterator" id="transactionCountsFindAll">
+      <nodeDefinition DefName="com.jpa.csv.parse.TransactionCounts" Name="transactionCountsFindAll0">
+        <AttrNames>
+          <Item Value="orderingcurrency"/>
+          <Item Value="transactionCount"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
