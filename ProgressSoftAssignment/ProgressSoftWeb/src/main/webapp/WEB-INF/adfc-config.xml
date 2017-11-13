@@ -18,4 +18,10 @@
     <managed-bean-scope>backingBean</managed-bean-scope>
     <!--oracle-jdev-comment:managed-bean-jsp-link:1edit_trasaction.jspx-->
   </managed-bean>
+  <managed-bean id="__4">
+    <managed-bean-name>request_index</managed-bean-name>
+    <managed-bean-class>com.java.assignment.backing.Index</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1index.jspx-->
+  </managed-bean>
 </adfc-config>

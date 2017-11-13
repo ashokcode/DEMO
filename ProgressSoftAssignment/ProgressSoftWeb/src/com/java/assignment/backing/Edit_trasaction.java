@@ -34,6 +34,7 @@ import javax.faces.event.ValueChangeEvent;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
 
+import oracle.adf.share.ADFContext;
 import oracle.adf.share.logging.ADFLogger;
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
@@ -317,6 +318,9 @@ public class Edit_trasaction {
     }
 
     public void updateFileTransaction(ActionEvent actionEvent) {
+        System.out.println("beore Refreshed needed is invoked : ");
+        ADFContext.getCurrent().getRequestScope().put("IfNeeded", Boolean.TRUE); 
+        System.out.println(" Refreshed needed is invoked : ");
         return;
     }
     

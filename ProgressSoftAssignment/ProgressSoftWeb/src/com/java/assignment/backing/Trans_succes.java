@@ -1,5 +1,10 @@
 package com.java.assignment.backing;
 
+
+
+import javax.faces.context.FacesContext;
+
+import oracle.adf.share.ADFContext;
 import oracle.adf.view.rich.component.rich.RichDocument;
 import oracle.adf.view.rich.component.rich.RichForm;
 import oracle.adf.view.rich.component.rich.data.RichTable;
@@ -9,6 +14,8 @@ import oracle.adf.view.rich.component.rich.layout.RichPanelTabbed;
 import oracle.adf.view.rich.component.rich.layout.RichShowDetailItem;
 import oracle.adf.view.rich.component.rich.nav.RichButton;
 import oracle.adf.view.rich.component.rich.output.RichMessages;
+
+import org.apache.myfaces.trinidad.context.RequestContext;
 
 public class Trans_succes {
     private RichForm f1;
@@ -54,6 +61,9 @@ public class Trans_succes {
     }
 
     public RichShowDetailItem getSuccestab() {
+        System.out.println("before Table Refereshed \n\n\n ");
+        //RequestContext.getCurrentInstance().addPartialTarget(t1);
+        System.out.println("Table Refereshed \n\n\n ");
         return succestab;
     }
 

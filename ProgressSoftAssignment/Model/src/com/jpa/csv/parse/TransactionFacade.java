@@ -101,4 +101,12 @@ public class TransactionFacade {
     public List<TransactionCounts> getTransactionCountsFindAll() {
         return em.createNamedQuery("TransactionCounts.findAll", TransactionCounts.class).getResultList();
     }
+
+    /**
+     * This is the method to refresh the table data
+     */
+    public void refreshTabeData() {
+       
+        commitTransaction();
+    }
 }
